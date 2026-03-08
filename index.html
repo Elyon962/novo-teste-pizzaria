@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PizzaAvalia - Sistema de Opiniões</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- CABEÇALHO -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-pizza-slice"></i>
+                <h1>Pizza<span>Avalia</span></h1>
+            </div>
+            
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#cardapio"><i class="fas fa-pizza-slice"></i> Cardápio</a></li>
+                <li><a href="#avaliacoes"><i class="fas fa-star"></i> Avaliações</a></li>
+                <li><a href="#ranking"><i class="fas fa-trophy"></i> Ranking</a></li>
+                <li><a href="#enquete"><i class="fas fa-poll"></i> Enquete</a></li>
+                <li><a href="#contato"><i class="fas fa-comment"></i> Opiniões</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HOME -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>SISTEMA DE <span class="destaque">AVALIAÇÕES</span></h1>
+            <p>Experimente, avalie e ajude a melhorar nossas pizzas</p>
+            
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <i class="fas fa-pizza-slice"></i>
+                    <span class="stat-numero">16</span>
+                    <span>Sabores</span>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-star"></i>
+                    <span class="stat-numero">4.8</span>
+                    <span>Média geral</span>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <span class="stat-numero">1.2k</span>
+                    <span>Avaliações</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARDÁPIO -->
+    <section id="cardapio" class="cardapio">
+        <h2 class="section-title">NOSSO <span class="destaque">CARDÁPIO</span></h2>
+        
+        <div class="filtros">
+            <button class="filtro-btn active" data-filtro="todos">Todas</button>
+            <button class="filtro-btn" data-filtro="tradicionais">Tradicionais</button>
+            <button class="filtro-btn" data-filtro="especiais">Especiais</button>
+            <button class="filtro-btn" data-filtro="doces">Doces</button>
+        </div>
+
+        <div class="cardapio-grid" id="cardapio-grid"></div>
+    </section>
+
+    <!-- SISTEMA DE AVALIAÇÕES -->
+    <section id="avaliacoes" class="avaliacoes">
+        <h2 class="section-title">AVALIE NOSSAS <span class="destaque">PIZZAS</span></h2>
+        
+        <div class="avaliacao-container">
+            <div class="seletor-pizza">
+                <label for="pizza-select">Escolha a pizza:</label>
+                <select id="pizza-select" class="pizza-select"></select>
+            </div>
+
+            <div class="estrelas-container">
+                <span>Sua nota:</span>
+                <div class="estrelas-input" id="estrelas-input">
+                    <i class="far fa-star" data-valor="1"></i>
+                    <i class="far fa-star" data-valor="2"></i>
+                    <i class="far fa-star" data-valor="3"></i>
+                    <i class="far fa-star" data-valor="4"></i>
+                    <i class="far fa-star" data-valor="5"></i>
+                </div>
+            </div>
+
+            <textarea id="comentario" placeholder="Deixe seu comentário sobre a pizza..." rows="4"></textarea>
+            
+            <div class="avaliacao-opcoes">
+                <label><input type="checkbox" id="recomendar"> Recomendo esta pizza</label>
+                <label><input type="checkbox" id="comeria-novamente"> Comeria novamente</label>
+            </div>
+
+            <button class="btn-avaliar" id="btn-avaliar">
+                <i class="fas fa-star"></i> Enviar Avaliação
+            </button>
+        </div>
+
+        <!-- Últimas Avaliações -->
+        <div class="ultimas-avaliacoes">
+            <h3>Últimas Avaliações</h3>
+            <div id="lista-avaliacoes" class="lista-avaliacoes"></div>
+        </div>
+    </section>
+
+    <!-- RANKING DAS PIZZAS -->
+    <section id="ranking" class="ranking">
+        <h2 class="section-title">RANKING DAS <span class="destaque">PIZZAS</span></h2>
+        
+        <div class="ranking-container" id="ranking-container"></div>
+    </section>
+
+    <!-- ENQUETE DO DIA -->
+    <section id="enquete" class="enquete">
+        <h2 class="section-title">ENQUETE DO <span class="destaque">DIA</span></h2>
+        
+        <div class="enquete-container">
+            <h3>Qual novo sabor você gostaria de experimentar?</h3>
+            
+            <div class="enquete-opcoes" id="enquete-opcoes">
+                <div class="opcao" data-opcao="0">
+                    <span>Pizza de Camarão</span>
+                    <span class="votos" id="votos-0">0 votos</span>
+                </div>
+                <div class="opcao" data-opcao="1">
+                    <span>Pizza de Palmito</span>
+                    <span class="votos" id="votos-1">0 votos</span>
+                </div>
+                <div class="opcao" data-opcao="2">
+                    <span>Pizza de Nutella</span>
+                    <span class="votos" id="votos-2">0 votos</span>
+                </div>
+                <div class="opcao" data-opcao="3">
+                    <span>Pizza Vegana</span>
+                    <span class="votos" id="votos-3">0 votos</span>
+                </div>
+            </div>
+            
+            <div class="total-votos" id="total-votos">Total de votos: 0</div>
+        </div>
+    </section>
+
+    <!-- SUGESTÕES E OPINIÕES -->
+    <section id="contato" class="opinioes">
+        <h2 class="section-title">DEIXE SUA <span class="destaque">OPINIÃO</span></h2>
+        
+        <div class="opinioes-container">
+            <form id="form-opiniao" class="form-opiniao">
+                <input type="text" id="nome-opiniao" placeholder="Seu nome" required>
+                
+                <div class="opiniao-rapida">
+                    <label>O que achou do nosso atendimento?</label>
+                    <div class="estrelas-rapidas" id="estrelas-atendimento">
+                        <i class="far fa-star" data-valor="1"></i>
+                        <i class="far fa-star" data-valor="2"></i>
+                        <i class="far fa-star" data-valor="3"></i>
+                        <i class="far fa-star" data-valor="4"></i>
+                        <i class="far fa-star" data-valor="5"></i>
+                    </div>
+                </div>
+
+                <div class="opiniao-rapida">
+                    <label>E a qualidade das pizzas?</label>
+                    <div class="estrelas-rapidas" id="estrelas-qualidade">
+                        <i class="far fa-star" data-valor="1"></i>
+                        <i class="far fa-star" data-valor="2"></i>
+                        <i class="far fa-star" data-valor="3"></i>
+                        <i class="far fa-star" data-valor="4"></i>
+                        <i class="far fa-star" data-valor="5"></i>
+                    </div>
+                </div>
+
+                <textarea id="opiniao-livre" placeholder="Deixe sua opinião livre (sugestões, críticas, elogios)..." rows="4"></textarea>
+                
+                <button type="submit" class="btn-opiniao">
+                    <i class="fas fa-paper-plane"></i> Enviar Opinião
+                </button>
+            </form>
+
+            <div class="opinioes-recentes">
+                <h3>Opiniões Recentes</h3>
+                <div id="lista-opinioes" class="lista-opinioes"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUGESTÕES POPULARES -->
+    <section class="sugestoes">
+        <h2 class="section-title">SUGESTÕES MAIS <span class="destaque">PEDIDAS</span></h2>
+        
+        <div class="sugestoes-container" id="sugestoes-container"></div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4><i class="fas fa-pizza-slice"></i> PizzaAvalia</h4>
+                <p>Sua opinião é muito importante para nós!</p>
+            </div>
+            <div class="footer-section">
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#cardapio">Cardápio</a></li>
+                    <li><a href="#avaliacoes">Avaliações</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Média Geral</h4>
+                <div class="media-geral">
+                    <span class="media-numero" id="media-geral">0.0</span>
+                    <div class="media-estrelas" id="media-estrelas"></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 PizzaAvalia - Sistema de Opiniões</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
